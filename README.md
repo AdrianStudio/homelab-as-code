@@ -40,7 +40,7 @@ Three layers, one repo:
 
 ## Structure
 
-'''
+```
 
 homelab-as-code/
 ├── infra/proxmox/         # Terraform modules for Proxmox VMs/LXCs
@@ -52,7 +52,7 @@ homelab-as-code/
 ├── .gitignore
 └── README.md
 
-'''
+```
 
 ---
 
