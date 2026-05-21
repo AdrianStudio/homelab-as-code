@@ -1,4 +1,4 @@
-![Proxmox](https://img.shields.io/badge/Proxmox-9.1-E57000?logo=proxmox&logoColor=white)
+![Proxmox](https://img.shields.io/badge/Proxmox-9.2-E57000?logo=proxmox&logoColor=white)
 ![K3s](https://img.shields.io/badge/K3s-Kubernetes-FFC61C?logo=k3s&logoColor=white)
 ![Terraform](https://img.shields.io/badge/Terraform-IaC-7B42BC?logo=terraform&logoColor=white)
 ![Ansible](https://img.shields.io/badge/Ansible-Config-EE0000?logo=ansible&logoColor=white)
@@ -21,9 +21,9 @@ Three layers, one repo:
 
 | Node | Role | Specs |
 |------|------|-------|
-| EliteDesk 600 G2 | Proxmox master | i5-6500, 16GB RAM, 480GB SSD + 240GB SSD + 6TB HDD |
-| ProDesk 400 G3 #1 | Proxmox worker | i5-7500T, 8GB RAM, 500GB HDD |
-| ProDesk 400 G3 #2 | Proxmox worker | i5-7500T, 8GB RAM, 500GB HDD |
+| EliteDesk 600 G2 | Proxmox master (.100) | i5-6500, 16GB RAM, 480GB SSD + 240GB SSD + 6TB HDD |
+| ProDesk 400 G3 #1 | Proxmox worker (.101) | i5-7500T, 8GB RAM, 500GB HDD |
+| ProDesk 400 G3 #2 | Proxmox worker (.102) | i5-7500T, 8GB RAM, 500GB HDD |
 
 ---
 
@@ -35,6 +35,26 @@ Three layers, one repo:
 | 192.168.1.11x | Infrastructure VMs |
 | 192.168.1.12x | K3s cluster |
 | 192.168.1.20x | Services (LXC) |
+
+---
+
+## Stack
+
+| Component | Role |
+|-----------|------|
+| Proxmox VE 9.2 | Hypervisor — 3-node cluster |
+| K3s | Lightweight Kubernetes — 1 master, 2 workers |
+| Terraform | Proxmox VM and LXC provisioning |
+| Ansible | Node configuration and hardening |
+| ArgoCD | GitOps — syncs from this repo to K3s |
+| Traefik | Ingress controller |
+| Longhorn | Distributed block storage |
+| Prometheus + Grafana | Metrics and dashboards |
+| Loki + Promtail | Log aggregation |
+| Alertmanager | Alerts to Discord |
+| cert-manager | Automatic TLS via Let's Encrypt |
+| Cloudflare Tunnel | Public exposure via tamargo.dev |
+| GitHub Actions | CI — lint, validate, security scan |
 
 ---
 
