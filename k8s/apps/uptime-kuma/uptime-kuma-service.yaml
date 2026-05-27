@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: uptime-kuma
+  namespace: apps
+  labels:
+     app: uptime-kuma
+spec:
+  type: NodePort
+  ports:
+    - port:  3001
+      targetPort: 3001
+      nodePort: 30083
+  selector:
+    app: uptime-kuma
