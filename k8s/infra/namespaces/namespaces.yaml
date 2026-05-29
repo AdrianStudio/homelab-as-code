@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: apps
+  labels:
+    kubernetes.io/metadata.nam: apps
+    type: infrastructure
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: monitoring
+  labels:
+    kubernetes.io/metadata.nam: monitoring
+    type: infrastructure
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: infra
+  labels:
+    kubernetes.io/metadata.nam: infra
+    type: infrastructure
