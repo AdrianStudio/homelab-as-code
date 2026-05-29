@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: whoogle
+  namespace: apps
+  labels:
+    app: whoogle
+spec:
+  type: NodePort
+  ports:
+    - port:  5000
+      targetPort: 5000
+      nodePort: 30084
+  selector:
+    app: whoogle

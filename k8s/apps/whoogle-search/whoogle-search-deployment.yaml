@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whoogle
+  namespace: apps
+  labels:
+    app: whoogle
+    type: front-end
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: whoogle
+      labels:
+        app: whoogle
+        type: front-end
+    spec:
+      containers:
+        - name: whoogle
+          image: benbusby/whoogle-search:latest
+          ports:
+          - containerPort: 5000
+  selector:
+    matchLabels:
+      app: whoogle
